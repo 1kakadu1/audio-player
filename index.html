@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Audio</title>
+    <link rel="stylesheet" href="./css/nouislider.min.css">
+    <link rel="stylesheet" href="./css/audio.css">
+</head>
+<body>
+    <div class="container">
+        <div class="audio-player" style="background-image: url(./img/prew-4.jpg);">
+
+            <video id="index-video" 
+                muted="true" loop="true" 
+                preload="metadata" 
+                playsinline="true" 
+                style="display:block"
+                webkit-playsinline="true">
+                <!-- <source src="./video/vi-3.mp4" type="video/mp4"> -->
+            </video>
+            <div class="audio-player-container">
+                <div class="hider"></div>
+                <canvas id='canvas' width="400" height="400"></canvas>
+                <div class="audio-player-vizual">
+                     
+                    <svg viewBox="0 0 194 174" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M138.273 28.5011C137.812 28.1196 137.203 27.9461 136.587 28.0147L70.3321 36.1097C69.2678 36.2409 68.4706 37.0946 68.4706 38.1098V50.2533V58.754V109.984C64.568 105.554 58.3678 102.672 51.3725 102.672C39.5877 102.672 30 110.82 30 120.836C30 130.852 39.5877 139 51.3725 139C63.1574 139 72.7451 130.852 72.7451 120.836C72.7451 120.368 72.7045 119.908 72.6617 119.45C72.6895 119.318 72.7451 119.199 72.7451 119.062V60.528L134.725 52.9537V89.8001C130.823 85.3722 124.623 82.4902 117.627 82.4902C105.843 82.4902 96.2549 90.6377 96.2549 100.654C96.2549 110.67 105.843 118.818 117.627 118.818C129.305 118.818 138.814 110.814 138.985 100.922C138.985 100.896 139 100.874 139 100.848V50.657V42.1583V30.0167C139 29.4355 138.735 28.8825 138.273 28.5011Z" fill="#FFFDFD"/>
+                        <g filter="url(#filter0_d)">
+                        <path d="M188.5 83C188.5 127.855 147.699 164.5 97 164.5C46.3009 164.5 5.5 127.855 5.5 83C5.5 38.1447 46.3009 1.5 97 1.5C147.699 1.5 188.5 38.1447 188.5 83Z" stroke="#FEFCFC" stroke-width="3"/>
+                        </g>
+                        <defs>
+                        <filter id="filter0_d" x="0" y="0"  filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+                        <feOffset dy="4"/>
+                        <feGaussianBlur stdDeviation="2"/>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+                        </filter>
+                        </defs>
+                    </svg>      
+                </div>
+                <div class="audio-player-nav">
+                    <div class="audio-player-tool">
+    
+                        <svg class="audio-player-tool__toggel-btn" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 394.667 394.667" style="enable-background:new 0 0 394.667 394.667;" xml:space="preserve">
+                                    <path d="M32,37.333c-17.707,0-32,14.293-32,32s14.293,32,32,32s32-14.293,32-32S49.707,37.333,32,37.333z"/>
+                                    <path d="M32,165.333c-17.707,0-32,14.293-32,32s14.293,32,32,32s32-14.293,32-32S49.707,165.333,32,165.333z"/>
+                                    <path d="M32,293.333c-17.813,0-32,14.4-32,32c0,17.6,14.4,32,32,32c17.6,0,32-14.4,32-32C64,307.733,49.813,293.333,32,293.333z"
+                                        />
+                                    <rect x="96" y="304" width="298.667" height="42.667"/>
+                                    <rect x="96" y="48" width="298.667" height="42.667"/>
+                                    <rect x="96" y="176" width="298.667" height="42.667"/>
+                        </svg>
+                        
+                        <div class="audio-player-title">
+                            <!-- <marquee behavior="scroll" direction="left">Title - tetle title tetle title tetle title</marquee> -->
+                            <span></span>
+                        </div>
+                        <div class="audio-player__loading" style="opacity: 0;">
+                            <span>
+                                Loading 
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" stroke="#fff">
+                                    <g fill="none" fill-rule="evenodd" stroke-width="2">
+                                        <circle cx="22" cy="22" r="7.00588">
+                                            <animate attributeName="r" begin="0s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"/>
+                                            <animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"/>
+                                        </circle>
+                                        <circle cx="22" cy="22" r="18.9689">
+                                            <animate attributeName="r" begin="-0.9s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"/>
+                                            <animate attributeName="stroke-opacity" begin="-0.9s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"/>
+                                        </circle>
+                                    </g>
+                                </svg>
+                            </span>
+                        </div>
+  
+                        <div class="audio-player-volume-container">
+                            <div id="audio-player-volume__size">100%</div>
+                            <svg version="1.1" class="vol-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                viewBox="0 0 469.333 469.333" style="enable-background:new 0 0 469.333 469.333;" xml:space="preserve">
+                                        <path d="M206.885,43.544c-3.875-1.698-8.448-0.896-11.542,2.042L85.49,149.336H10.667C4.771,149.336,0,154.107,0,160.002v149.333
+                                            c0,5.896,4.771,10.667,10.667,10.667H85.49l109.854,103.75c2.021,1.917,4.656,2.917,7.323,2.917c1.427,0,2.865-0.281,4.219-0.875
+                                            c3.917-1.677,6.448-5.531,6.448-9.792V53.336C213.333,49.075,210.802,45.221,206.885,43.544z"/>
+                                        <path id="vol-path-1" d="M262.452,174.884l-15.199,15.199c-3.505,3.505-4.44,9.168-1.513,13.168c6.449,8.819,10.26,19.682,10.26,31.418
+                                            c0,11.736-3.811,22.599-10.26,31.417c-2.927,4-1.992,9.664,1.513,13.169l15.199,15.198c4.655,4.656,12.259,3.939,16.28-1.276
+                                            c12.495-16.208,19.935-36.505,19.935-58.508c0-22.004-7.44-42.301-19.935-58.509
+                                            C274.711,170.945,267.107,170.228,262.452,174.884z"/>
+                                        <path id="vol-path-2" d="M338.423,114.575c-4.01-4.53-11.151-4.512-15.428-0.234l-15.092,15.092c-4.043,4.042-4.005,10.395-0.27,14.721
+                                            c20.991,24.307,33.701,55.954,33.701,90.514c0,34.56-12.71,66.207-33.701,90.516c-3.736,4.326-3.772,10.677,0.27,14.719
+                                            l15.092,15.092c4.277,4.279,11.418,4.296,15.43-0.233C366.771,322.755,384,280.686,384,234.669
+                                            C384,188.651,366.771,146.582,338.423,114.575z"/>
+                                        <path id="vol-path-3" d="M398.764,54.138c-4.082-4.43-11.151-4.417-15.409-0.158l-15.112,15.112c-4.053,4.053-4.033,10.451-0.167,14.685
+                                            c36.376,39.84,58.59,92.822,58.59,150.892s-22.214,111.051-58.59,150.892c-3.865,4.234-3.887,10.632,0.167,14.685l15.112,15.111
+                                            c4.259,4.26,11.328,4.272,15.41-0.158c43.79-47.529,70.568-110.961,70.568-180.53
+                                            C469.333,165.099,442.555,101.666,398.764,54.138z"/>
+                            </svg>
+                            <div id="audio-player-volume" class="audio-player-volume"></div>
+                        </div>
+
+                    </div>
+                    <div class="audio-player-nav-top">
+                        <div class="audio-player-btn-group">
+                            <button class="audio-player-nav__play audio-player-nav__btn">
+                                <svg  viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.982 14.436L13.742 9.90001C13.513 9.73401 13.209 9.70901 12.958 9.83801C12.705 9.96601 12.547 10.226 12.547 10.507V19.576C12.547 19.86 12.705 20.119 12.958 20.247C13.065 20.301 13.182 20.328 13.3 20.328C13.454 20.328 13.61 20.279 13.742 20.182L19.982 15.65C20.179 15.505 20.294 15.281 20.294 15.043C20.295 14.801 20.177 14.578 19.982 14.436Z" fill="#FFFAFA"/>
+                                    <path d="M15.026 0C6.726 0 0 6.726 0 15.026C0 23.323 6.726 30.047 15.026 30.047C23.324 30.047 30.051 23.322 30.051 15.026C30.052 6.726 23.324 0 15.026 0ZM15.026 27.54C8.114 27.54 2.51 21.939 2.51 15.026C2.51 8.116 8.114 2.508 15.026 2.508C21.937 2.508 27.54 8.115 27.54 15.026C27.541 21.939 21.937 27.54 15.026 27.54Z" fill="#FFFAFA"/>
+                                </svg>   
+                            </button>
+                            <button class="audio-player-nav__pause audio-player-nav__btn">
+                                <svg fill="none" viewBox="0 0 31 31" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.5 9H16.5V21H19.5V9ZM15 30C23.25 30 30 23.25 30 15C30 6.75 23.25 0 15 0C6.75 0 0 6.75 0 15C0 23.25 6.75 30 15 30ZM15 3C21.6 3 27 8.4 27 15C27 21.6 21.6 27 15 27C8.4 27 3 21.6 3 15C3 8.4 8.4 3 15 3ZM13.5 9H10.5V21H13.5V9Z" fill="#FFFEFE"/>
+                                </svg>   
+                            </button>
+                        </div>
+                        <div class="audio-player-btn-group audio-player-btn-group__right">
+                                <button class="audio-player-nav__btn video-play">
+                                    <svg viewBox="0 -16 512.001 512" xmlns="http://www.w3.org/2000/svg"><path d="m316 200c-5.519531 0-10 4.480469-10 10s4.480469 10 10 10 10-4.480469 10-10-4.480469-10-10-10zm0 0"/><path d="m316 260c-5.519531 0-10 4.480469-10 10s4.480469 10 10 10 10-4.480469 10-10-4.480469-10-10-10zm0 0"/><path d="m76 300c-5.519531 0-10 4.480469-10 10s4.480469 10 10 10 10-4.480469 10-10-4.480469-10-10-10zm0 0"/><path d="m506.625 121.132812c-3.304688-1.722656-7.289062-1.464843-10.347656.667969l-83.421875 58.199219h-26.855469v-10c0-16.542969-13.457031-30-30-30h-37.167969c16.640625-14.671875 27.167969-36.121094 27.167969-60 0-44.113281-35.886719-80-80-80-30.089844 0-56.34375 16.707031-70 41.324219-13.65625-24.617188-39.910156-41.324219-70-41.324219-44.113281 0-80 35.886719-80 80 0 23.878906 10.527344 45.328125 27.167969 60h-43.167969c-16.542969 0-30 13.457031-30 30v180c0 16.542969 13.457031 30 30 30h56v30c0 5.523438 4.476562 10 10 10h30v50c0 5.523438 4.476562 10 10 10h120c5.523438 0 10-4.476562 10-10v-50h30c5.523438 0 10-4.476562 10-10v-30h50c16.542969 0 30-13.457031 30-30v-30h26.855469l83.421875 58.203125c3.023437 2.105469 7.007812 2.40625 10.347656.664063 3.304688-1.726563 5.375-5.140626 5.375-8.867188v-240c0-3.726562-2.070312-7.140625-5.375-8.867188zm-240.625-101.132812c33.085938 0 60 26.917969 60 60 0 33.085938-26.914062 60-60 60s-60-26.914062-60-60c0-33.082031 26.914062-60 60-60zm-52.832031 120h-34.339844c6.871094-6.054688 12.699219-13.261719 17.171875-21.324219 4.472656 8.0625 10.300781 15.269531 17.167969 21.324219zm-147.167969-60c0-33.082031 26.914062-60 60-60s60 26.917969 60 60c0 33.085938-26.914062 60-60 60s-60-26.914062-60-60zm180 380h-100v-40h100zm40-60h-180v-20h180zm80-50c0 5.515625-4.484375 10-10 10h-326c-5.515625 0-10-4.484375-10-10v-180c0-5.511719 4.484375-10 10-10h326c5.515625 0 10 4.488281 10 10zm20-150h20v100h-20zm106 150.832031-66-46.046875v-109.566406l66-46.046875zm0 0"/><path d="m126 50c-16.542969 0-30 13.457031-30 30s13.457031 30 30 30 30-13.457031 30-30-13.457031-30-30-30zm0 40c-5.515625 0-10-4.484375-10-10 0-5.511719 4.484375-10 10-10s10 4.488281 10 10c0 5.515625-4.484375 10-10 10zm0 0"/><path d="m266 110c16.542969 0 30-13.457031 30-30s-13.457031-30-30-30-30 13.457031-30 30 13.457031 30 30 30zm0-40c5.515625 0 10 4.488281 10 10 0 5.515625-4.484375 10-10 10s-10-4.484375-10-10c0-5.511719 4.484375-10 10-10zm0 0"/><path d="m226 270v-60c0-5.523438-4.476562-10-10-10h-140c-5.523438 0-10 4.476562-10 10v60c0 5.523438 4.476562 10 10 10h140c5.523438 0 10-4.476562 10-10zm-20-10h-120v-40h120zm0 0"/><path d="m316 300h-200c-5.523438 0-10 4.476562-10 10s4.476562 10 10 10h200c5.523438 0 10-4.476562 10-10s-4.476562-10-10-10zm0 0"/></svg>
+                                </button>
+                                <div class="video__loading" style="opacity: 0;">
+                                    <span>
+                                        Loading 
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" stroke="#fff">
+                                            <g fill="none" fill-rule="evenodd" stroke-width="2">
+                                                <circle cx="22" cy="22" r="7.00588">
+                                                    <animate attributeName="r" begin="0s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"/>
+                                                    <animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"/>
+                                                </circle>
+                                                <circle cx="22" cy="22" r="18.9689">
+                                                    <animate attributeName="r" begin="-0.9s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"/>
+                                                    <animate attributeName="stroke-opacity" begin="-0.9s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"/>
+                                                </circle>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                        </div>
+ 
+                    </div>
+                    
+                    <div class="audio-player-nav-bottom">
+                        <button class="audio-player-nav__prev">
+                            <svg viewBox="0 0 34 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M33.412 38.908C33.0588 39.0652 32.6441 39.0233 32.3373 38.8166L5.01212 20.3194C4.77378 20.1584 4.62601 19.9028 4.62478 19.6377C4.62358 19.3792 4.77146 19.1113 5.00576 18.9481L32.1607 0.195983C32.3421 0.0724709 32.5693 0.0057006 32.7917 0.00466886L33.2344 0.090236C33.5813 0.231012 33.8001 0.538865 33.8017 0.880582L33.9745 38.1168C33.976 38.4542 33.7601 38.7684 33.412 38.908Z" fill="white"/>
+                                <path d="M7.69228 39.047L0.979251 39.0782C0.536939 39.0802 0.178723 38.6854 0.176508 38.2079L0.00443139 1.11184C0.00217563 0.625548 0.35924 0.227403 0.799025 0.225363L7.51205 0.194223C7.95184 0.192183 8.31259 0.589188 8.31484 1.07329L8.4869 38.1671C8.48913 38.6469 8.12953 39.045 7.69228 39.047Z" fill="white"/>
+                            </svg>
+                        </button>
+    
+                        <div class="audio-player-nav-progress">
+                            <div class="audio-player-time">
+                                <div class="audio-player-time__timer audio-player-time__style">0:00</div>
+                                <div class="audio-player-time__duration audio-player-time__style">0:00</div>
+                            </div>
+                            <div class="audio-player__progress-btn"></div>
+                            <div class="audio-player__progress"></div>
+                            <div class="audio-player__progress-full"></div>
+                        </div>
+        
+                        <button class="audio-player-nav__next">
+                            <svg viewBox="0 0 34 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M33.412 38.908C33.0588 39.0652 32.6441 39.0233 32.3373 38.8166L5.01212 20.3194C4.77378 20.1584 4.62601 19.9028 4.62478 19.6377C4.62358 19.3792 4.77146 19.1113 5.00576 18.9481L32.1607 0.195983C32.3421 0.0724709 32.5693 0.0057006 32.7917 0.00466886L33.2344 0.090236C33.5813 0.231012 33.8001 0.538865 33.8017 0.880582L33.9745 38.1168C33.976 38.4542 33.7601 38.7684 33.412 38.908Z" fill="white"/>
+                                <path d="M7.69228 39.047L0.979251 39.0782C0.536939 39.0802 0.178723 38.6854 0.176508 38.2079L0.00443139 1.11184C0.00217563 0.625548 0.35924 0.227403 0.799025 0.225363L7.51205 0.194223C7.95184 0.192183 8.31259 0.589188 8.31484 1.07329L8.4869 38.1671C8.48913 38.6469 8.12953 39.045 7.69228 39.047Z" fill="white"/>
+                            </svg>
+                                
+                        </button>
+                    </div>
+                </div>
+ 
+            </div>
+            <div class="audio-player-toggel-list">
+                <div class="audio-player-toggel-list__item" data-index="0" data-audio-webp="off" data-audio-src="./audio/1">
+                    <span class="audio-title">Mayten - Plenitude (HDA Mix)</span>
+                </div>
+                <div class="audio-player-toggel-list__item" data-index="1" data-audio-webp="off" data-audio-src="./audio/2">
+                    <span class="audio-title">Naruto - Type Beat Sharingan Sasuke Theme Trap Remix</span>
+                </div>
+                <div class="audio-player-toggel-list__item" data-index="2" data-audio-webp="off" data-audio-src="./audio/3">
+                    <span class="audio-title">Nick Cave-warren ellis all the gold in california(OST)</span>
+                </div>
+                <div class="audio-player-toggel-list__item" data-index="3" data-audio-webp="off" data-audio-src="./audio/4">
+                    <span class="audio-title">Z H I V A G O</span>
+                </div>
+                <div class="audio-player-toggel-list__item" data-index="4" data-audio-webp="off" data-audio-src="./audio/5">
+                    <span class="audio-title">at night ;)</span>
+                </div>
+                <div class="audio-player-toggel-list__item" data-index="5" data-audio-webp="off" data-audio-src="./audio/6">
+                    <span class="audio-title">AZEDIA - Absent</span>
+                </div>
+                <div class="audio-player-toggel-list__item" data-index="6" data-audio-webp="off" data-audio-src="./audio/7">
+                    <span class="audio-title">Effin - Cheese</span>
+                </div>
+                <div class="audio-player-toggel-list__item" data-index="7" data-audio-webp="off" data-audio-src="./audio/8">
+                    <span class="audio-title">Plenka - Call Me</span>
+                </div>
+                <div class="audio-player-toggel-list__item" data-index="8" data-audio-webp="off" data-audio-src="./audio/9">
+                    <span class="audio-title">The Irrepressibles - In This Shirt</span>
+                </div>
+            </div>
+            <div class="audio-player-toggel-list-hammer"></div>
+            <div class="modal-video-list">
+                <div class="modal-video-list__item" data-video-src="./video/vi-4.mp4">
+                    <img class="modal-video-list__item-preview" src="./img/vi-4-p.png" alt="">
+                </div>
+                <div class="modal-video-list__item" data-video-src="./video/vi-2.mp4">
+                    <img class="modal-video-list__item-preview" src="./img/vi-2-p.png" alt="">
+                </div>
+                <div class="modal-video-list__item" data-video-src="./video/vi-3.mp4">
+                    <img class="modal-video-list__item-preview" src="./img/vi-3-p.png" alt="">
+                </div>
+                <div class="modal-video-list__item" data-video-src="./video/vi-1.mp4">
+                    <img class="modal-video-list__item-preview" src="./img/vi-1-p.png" alt="">
+                </div>
+                <div class="modal-video-list__item modal-video-list__item_active" data-video-src="null">
+                    <svg class="modal-video-list__item-preview" viewBox="0 0 512.00038 512"  xmlns="http://www.w3.org/2000/svg"><path d="m256 69.914062c5.523438 0 10-4.476562 10-10v-49.914062c0-5.523438-4.476562-10-10-10-5.519531 0-10 4.476562-10 10v49.914062c0 5.523438 4.480469 10 10 10zm0 0"/><path d="m159.808594 85.371094c1.953125 1.953125 4.511718 2.925781 7.066406 2.925781 2.5625 0 5.121094-.976563 7.074219-2.929687 3.90625-3.90625 3.902343-10.238282-.003907-14.144532l-33.453124-33.421875c-3.90625-3.902343-10.238282-3.902343-14.140626.007813-3.902343 3.90625-3.902343 10.238281.003907 14.140625zm0 0"/><path d="m105.140625 26.589844c2.5625 0 5.117187-.976563 7.070313-2.925782l.015624-.015624c3.90625-3.90625 3.898438-10.230469-.007812-14.136719-3.902344-3.902344-10.242188-3.898438-14.148438.007812s-3.90625 10.238281 0 14.144531c1.953126 1.949219 4.511719 2.925782 7.070313 2.925782zm0 0"/><path d="m343.011719 90.503906c2.5625 0 5.121093-.980468 7.074219-2.933594l35.5625-35.59375c3.90625-3.90625 3.902343-10.238281-.003907-14.140624-3.90625-3.90625-10.238281-3.902344-14.144531.003906l-35.5625 35.59375c-3.902344 3.90625-3.898438 10.238281.007812 14.140625 1.953126 1.953125 4.507813 2.929687 7.066407 2.929687zm0 0"/><path d="m256 442.085938c-5.519531 0-10 4.476562-10 10v49.914062c0 5.523438 4.480469 10 10 10 5.523438 0 10-4.476562 10-10v-49.914062c0-5.523438-4.476562-10-10-10zm0 0"/><path d="m159.808594 426.628906-33.449219 33.421875c-3.90625 3.90625-3.910156 10.234375-.007813 14.140625 1.953126 1.957032 4.515626 2.933594 7.074219 2.933594 2.558594 0 5.117188-.976562 7.066407-2.925781l33.453124-33.421875c3.90625-3.90625 3.910157-10.234375.003907-14.144532-3.902344-3.90625-10.234375-3.910156-14.140625-.003906zm0 0"/><path d="m350.085938 424.429688c-3.902344-3.90625-10.234376-3.910157-14.140626-.003907-3.90625 3.902344-3.910156 10.234375-.007812 14.140625l35.5625 35.59375c1.953125 1.953125 4.515625 2.929688 7.074219 2.929688 2.558593 0 5.117187-.976563 7.070312-2.925782 3.902344-3.902343 3.90625-10.234374.003907-14.140624zm0 0"/><path d="m399.820312 488.304688-.015624.015624c-3.902344 3.90625-3.894532 10.230469.007812 14.136719 1.953125 1.949219 4.511719 2.925781 7.066406 2.925781 2.566406 0 5.128906-.980468 7.082032-2.933593 3.90625-3.90625 3.90625-10.238281 0-14.144531-3.902344-3.90625-10.234376-3.90625-14.140626 0zm0 0"/><path d="m510.363281 250.519531c-21.761719-33.214843-49.277343-61.265625-80.761719-83.199219l32.394532-18.707031c4.785156-2.757812 6.421875-8.875 3.660156-13.65625-2.761719-4.785156-8.875-6.425781-13.660156-3.660156l-41.324219 23.855469c-46.082031-27.257813-99.25-42.207032-154.671875-42.207032-102.832031 0-197.921875 51.429688-254.363281 137.574219-2.183594 3.328125-2.183594 7.632813 0 10.960938 21.761719 33.21875 49.277343 61.269531 80.761719 83.203125l-32.398438 18.703125c-4.78125 2.761719-6.421875 8.878906-3.660156 13.660156 1.855468 3.207031 5.214844 5 8.671875 5 1.695312 0 3.417969-.429687 4.988281-1.339844l41.324219-23.859375c46.085937 27.261719 99.253906 42.207032 154.675781 42.207032 102.832031 0 197.921875-51.429688 254.363281-137.574219 2.183594-3.328125 2.183594-7.632813 0-10.960938zm-119.800781-83.753906-16.015625 9.246094c-6.667969-9.847657-14.53125-18.820313-23.375-26.71875 13.574219 4.820312 26.742187 10.664062 39.390625 17.472656zm-11.507812 89.234375c0 67.851562-55.199219 123.054688-123.054688 123.054688-41.882812 0-78.9375-21.039063-101.171875-53.09375l35.722656-20.625c14.980469 19.824218 38.742188 32.664062 65.449219 32.664062 45.214844 0 82-36.785156 82-82 0-11.359375-2.324219-22.1875-6.519531-32.03125l35.722656-20.625c7.59375 15.972656 11.851563 33.824219 11.851563 52.65625zm-185.054688 0c0-34.1875 27.8125-62 62-62 19.3125 0 36.585938 8.878906 47.964844 22.761719l-105.945313 61.167969c-2.589843-6.824219-4.019531-14.210938-4.019531-21.929688zm119.984375-21.929688c2.585937 6.824219 4.015625 14.210938 4.015625 21.929688 0 34.1875-27.8125 62-62 62-19.308594 0-36.582031-8.875-47.960938-22.761719zm7.464844-27.402343c-14.980469-19.828125-38.742188-32.667969-65.449219-32.667969-45.214844 0-82 36.785156-82 82 0 11.359375 2.324219 22.1875 6.519531 32.03125l-35.722656 20.625c-7.59375-15.972656-11.851563-33.824219-11.851563-52.65625 0-67.851562 55.203126-123.054688 123.054688-123.054688 41.882812 0 78.941406 21.039063 101.175781 53.097657zm-299.402344 49.332031c34.46875-50.078125 83.183594-86.964844 138.785156-106.703125-29.367187 26.214844-47.886719 64.335937-47.886719 106.703125 0 22.46875 5.214844 43.742188 14.484376 62.683594l-25.746094 14.863281c-30.921875-20.035156-58.066406-46.210937-79.636719-77.546875zm99.394531 89.234375 16.011719-9.246094c6.667969 9.851563 14.53125 18.820313 23.378906 26.71875-13.578125-4.820312-26.742187-10.664062-39.390625-17.472656zm229.730469 17.472656c29.363281-26.21875 47.882813-64.335937 47.882813-106.707031 0-22.46875-5.214844-43.742188-14.484376-62.683594l25.75-14.863281c30.921876 20.039063 58.066407 46.210937 79.636719 77.546875-34.472656 50.078125-83.1875 86.964844-138.785156 106.707031zm0 0"/></svg>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+   
+<script src="./js/hammer.js"></script>
+<script src="./js/howler.min.js"></script>
+<script src="./js/nouislider.min.js"></script>
+<script src="./js/audio.js" crossorigin="anonymous"></script>
+</body>
+</html>
